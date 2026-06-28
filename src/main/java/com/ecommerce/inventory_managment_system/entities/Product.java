@@ -23,7 +23,7 @@ import java.util.List;
 @SuperBuilder
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product extends AbstractEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
