@@ -31,7 +31,7 @@ public class CurrentTenantIdentifierResolverImpl implements CurrentTenantIdentif
     }
 
     @Override
-    public void customize(Map<String, Object> hibernateProperties) {
+    public void customize(final Map<String, Object> hibernateProperties) {
         hibernateProperties.put(MULTI_TENANT_IDENTIFIER_RESOLVER, this);
     }
 }

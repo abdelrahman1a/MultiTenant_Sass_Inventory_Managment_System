@@ -1,0 +1,35 @@
+package com.ecommerce.inventory_managment_system.mapper;
+
+import com.ecommerce.inventory_managment_system.entities.Product;
+import com.ecommerce.inventory_managment_system.entities.StockMvt;
+import com.ecommerce.inventory_managment_system.requests.StockMvtRequest;
+import com.ecommerce.inventory_managment_system.responses.StockMvtResponse;
+import org.springframework.stereotype.Component;
+
+@Component
+public class StockMvtMapper {
+
+
+    public StockMvt toEntity(final StockMvtRequest request) {
+        return StockMvt.builder()
+                .dateMvt(request.getDateMvt())
+                .comment(request.getComment())
+                .typeMvt(request.getTypeMvt())
+                .quantity(request.getQuantity())
+                .product(Product.builder()
+                        .id(request.getProductId())
+                        .build())
+                .deleted(false)
+                .build();
+    }
+
+    public StockMvtResponse toResponse(final StockMvt entity) {
+        return StockMvtResponse.builder()
+                .id(entity.getId())
+                .dateMvt(entity.getDateMvt())
+                .comment(entity.getComment())
+                .typeMvt(entity.getTypeMvt())
+                .quantity(entity.getQuantity())
+                .build();
+    }
+}
